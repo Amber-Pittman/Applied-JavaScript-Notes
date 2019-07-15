@@ -35,5 +35,5 @@
   <ul><li> You'll get an HTMLCollection: 
   <img src="images/All-Divs-DOM-I.PNG"></li></ul>
 3. If you type in `document.getElementsByClassName("navigation-item");`, you will get an HTMLCollection of just the navigation-item class
- <ul><li> HTMLCollection of the class "navigation-item" 
- <img src="images/Nav-Item-DOM-I.PNG"></li></ul>
+ <ul><li> HTMLCollection of the class "navigation-item" </li>
+ <img src="images/Nav-Item-DOM-I.PNG"></ul>
