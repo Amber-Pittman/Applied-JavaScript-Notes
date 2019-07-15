@@ -1,11 +1,10 @@
 # Introduction to the DOM
 
 ## A. What is the DOM?
-  1. It is the Document Object Model
-  2. An object representation of the HTML elements of a webpage. 
-  3. It is *NOT* the HTML page itself. 
-  4. The DOM is an Application Programming Interface (API). In our case, the DOM is a bridge between Content and the browser. 
-    * Content -- DOM --> Browser
+  #### 1. It is the Document Object Model
+  #### 2. An object representation of the HTML elements of a webpage. 
+  #### 3. It is *NOT* the HTML page itself. 
+  #### 4. The DOM is an Application Programming Interface (API). In our case, the DOM is a bridge between Content and the browser. Content -- DOM --> Browser
 ## B. What the DOM is *NOT*:
   * JavaScript
   * HTML or CSS
