@@ -31,7 +31,9 @@
 ## DOM Selectors
 
 1. In order to access the DOM, in "console," we use `document` as our base.
-  <ul>
-  <li> `document.getElementsByTagName("div"); // Grabs all the divs on the page` </li>
-  <li> * You'll get an HTMLCollection: 
-  <img src="All-Divs-DOM-I.PNG"></li></ul>
+2. `document.getElementsByTagName("div"); // Grabs all the divs on the page`
+  <ul><li> You'll get an HTMLCollection: 
+  <img src="images/All-Divs-DOM-I.PNG"></li></ul>
+3. If you type in `document.getElementsByClassName("navigation-item");`, you will get an HTMLCollection of just the navigation-item class
+ <ul><li> HTMLCollection of the class "navigation-item" 
+ <img src="images/Nav-Item-DOM-I.PNG"></li></ul>
