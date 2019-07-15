@@ -18,9 +18,9 @@
 ## E. Code
   1. Go into browser developer tools
   2. "Elements" show you how the page is built out
-    ** Go to the `<h1>` tag
-    ** Type "This is the DOM!"
-    ** Click off or away from the `<h1>` tag
-    ** It updates with the new text
-    ** This is *not* permanent! It's only visible on your own browser. This is great for experimenting!
+    <ul><li> Go to the `<h1>` tag </li>
+    <li> Type "This is the DOM!"</li>
+    <li> Click off or away from the `<h1>` tag </li>
+    <li> It updates with the new text </li>
+    <li> This is *not* permanent! It's only visible on your own browser. This is great for experimenting! </li>
   3. Go to "Console"
