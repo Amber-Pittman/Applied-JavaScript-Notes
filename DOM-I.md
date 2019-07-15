@@ -33,8 +33,4 @@
 1. In order to access the DOM, in "console," we use `document` as our base.
   * `document.getElementsByTagName("div"); // Grabs all the divs on the page` 
   * You'll get an HTMLCollection: 
-  ```
-      > HTMLCollection [div#intro-info.info, intro-info: div#intro.info.info]
-        >  0:div#intro-info.info
-           length: 1
-  ``` 
+  <img src="All-Divs-DOM-I.PNG">
