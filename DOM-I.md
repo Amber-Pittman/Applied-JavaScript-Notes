@@ -65,18 +65,25 @@
     <li>HTMLCollection is faster in performance because there are NO built-in methods</li></ul>
 
 
+## Deeper Dive Resources
+
+ * [DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) - Mozilla Developers Network (MDN) Resource
+ * [HTMLCollection Page](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection) - Another MDN Resource
+
+
 ## DOM-I Lecture Notes
 
-### Review Mozilla Developers Network (MDN) Resources
-
- [DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
- [HTMLCollection Page](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
-
 ### Multiple Element DOM Selectors
-<ul><li>Document.getElementsByTagName</li></ul>
+<ul><li>[document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)</li></ul>
 
  ```
  const pTags = document.getElementsByTagName("p"); // Notice it is Elements, not Element - PLURAL
  console.log(pTags) // Lists ALL p tags, kind of like an array
  console.log(pTags[0]); // will print 1st Indexed p tag
  ```
+ <ul><li>[Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Description)</li><ul>
+ ```
+ const pTagsArray = array.from(pTags);
+ console.log(pTagsArray); // Prints an array of all p tags
+ ```
+ 
