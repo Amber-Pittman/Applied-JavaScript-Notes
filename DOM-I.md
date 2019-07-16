@@ -48,8 +48,8 @@
 5. `document.querySelectorAll("navigation-item");`
     <ul><li>Returns a node list back</li>
     <li> Almost identical to an HTMLCollection</li>
-    <li>Click on arrow next to NodeList to explore more</li>
-    <img src="images\Query-Selector-All-DOM-I.PNG"></ul>
+    <li> Click on arrow next to NodeList to explore more</li>
+    <img src="images/Query-Selector-All-DOM-I.PNG"></ul>
 
 ### B. Difference between HTMLCollection and NodeList
 
@@ -57,6 +57,14 @@
     <ul><li>Both look like arrays</li>
     <li>Zero-based Index</li>
     <li>List of Items</li>
-    <li>Both have length propery</li></ul>
+    <li>Both have length property</li>
+    <li>Shallow Copied</li></ul>
 2. Differences
-    <ul><li>NodeLists can use the forEach() method, but HTMLCollection does NOT have that function.</li></ul>
+    <ul><li>NodeLists can use the forEach() method, but HTMLCollection does NOT have that function.</li>
+    <li>NodeLists provide more built-in methods</li>
+    <li>HTMLCollection is faster in performance because there are NO built-in methods</li></ul>
+
+## Review MDN Resources
+
+1. [MDN DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+2. [HTMLCollection Page] (https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
