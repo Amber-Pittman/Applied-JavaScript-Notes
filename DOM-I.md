@@ -273,7 +273,8 @@ const workList = document.querySelector(".work-list");
 console.log(workList);
 
 technologies.forEach(currentValue => {
-    const listItem = document.createElement("li"); // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
+    // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
+    const listItem = document.createElement("li"); 
     listItem.textContent = tech;
     workList.append(listItem);
 });
