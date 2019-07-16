@@ -78,7 +78,34 @@
 
 ## DOM-I Lecture Notes
 
+### Single Element DOM Selectors
+
+1. The Node - Everything in DOM Tree is a node. 
+2. Window --> document but you don't have to write `window.document.blahBlahBlah()`.
+3. Methods:
+* `.getElementById()`
+```
+// HTML File:
+<button id="custom-btn" class="lambda-button"><span>Work</span> with us!</button>
+
+// JavaScript File:
+
+const btnId = document.getElementById("custom-button"); // No # needed here because of method name
+console.log(btnId); // Prints HTML info into console
+```
+
+* `.querySelector()` - Finds the FIRST matching selector and is done after that
+
+```
+const btnQuery = document.querySelector("#custom-btn"); // NOTE: can use ".lambda-button" to get button by class instead of ID
+console.log(btnQuery);
+```
+
+
 ### Multiple Element DOM Selectors
+
+The dunderproto ( `__proto__` ) will show types of methods available. However, it is SUPER limited.
+
 * [document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)
 
  ```
@@ -102,6 +129,7 @@ console.log(contentAreaQArr);
  ```
 
 * [document.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) - NodeList
+Returns a NodeList. It's basically identical to HTMLCollection BUT gains a couple new methods like forEach(), entries, etc.
 
 ```
 const contentAreaQ = document.querySelectorAll(".content-area");
@@ -113,6 +141,10 @@ contentAreaQ.forEach(item => ({
 ```
 
 #### Dom Manipulation 
+
+With the DOM, you can make templates.
+
+Manipulating the DOM will still show the updates even if the elements are removed in HTML. For example, if you remove an image source in HTML (like all `scr="www.thislink.com"`), it still works because of DOM manipulation.
 
 ##### `.textContent`
 1. The textContent property sets or returns the text content of the specified node, and all its descendants.
@@ -126,7 +158,29 @@ servicesHeader.textContent = "New Services";
 console.log(servicesHeader);
 ```
 
-JavaScript DOM adds inline-styling which is the *highest* specificity. 
+3. JavaScript DOM adds inline-styling which is the *highest* specificity. 
+   * JavaScript Style Can't Use: `style.background-color`.
+   * JavaScript Style CAN use: `style.backgroundColor`.
+
+```
+const secondaryHeaders = document.querySelectorAll("h2");
+console.log(secondaryHeaders);
+
+// You can change colors by Hard Coding but is Not Recommended. It is not using the DRY principle. 
+secondaryHeaders[0].style.color = "crimson";
+secondaryHeaders[1].style.color = "crimson"; // NOT DRY
+
+// Do this instead:
+secondaryHeaders.forEach(function(currentValue) {  // This replaces the hard coded version on ALL h2's
+    currentValue.style.color = "crimson";
+});
+
+// Arrow Function Version - May be less easy to read for the next developer behind you
+secondaryHeaders.forEach(currentValue => currentValue.style.color = "crimson");
+
+
+```
+
 
 ##### `.setAttribute()`
 1. The setAttribute() method adds the specified attribute to an element, and gives it the specified value.
@@ -137,7 +191,7 @@ JavaScript DOM adds inline-styling which is the *highest* specificity.
 const servicesImg = document.querySelector(".services-img");
 console.log(servicesImg);
 
-servicesImg.setAttribute("src", "https://www.google.com/images/laptop-coffee");
+servicesImg.setAttribute("src", "https://www.blahblahimages.com");
 servicesImg.setAttribute("alt", "Laptop sitting on desk with coffee");
 console.log(servicesImg);
 ```
@@ -145,8 +199,9 @@ console.log(servicesImg);
 * Alternative Option:
 
 ```
-servicesImg.src("URL");
-servicesImg.alt("alt text goes here");
+servicesImg.src("https://www.blahblahimages.com"); // Super Easy to Read
+servicesImg.alt("Laptop sitting on desk with coffee"); // Adds alt text for Screen Readers
+
 console.log(servicesImg);
 ```
 
@@ -172,9 +227,9 @@ header.style.backgroundColor = "yellow";
 secondaryHeaders.style.color = "red";
 ```
 
-##### `.classList`
+##### `.classList` AKA a DOMTokenList
 1. The classList property returns the class name(s) of an element, as a DOMTokenList object.
-2. This property is useful to add, remove and toggle CSS classes on an element.
+2. This property is useful to `.add()`, `.remove()`, and `.toggle()` CSS classes on an element.
 3. The classList property is read-only, however, you can modify it by using the add() and remove() methods.
 
 ```
@@ -189,7 +244,7 @@ console.log(bottomDiv.classList);
 ```
 
 
-#### Creating New DOM Elements
+#### Creating New DOM Elements from JavaScript
 
 1. Create something
 
@@ -215,13 +270,11 @@ extraStuff.prepend(newPtag); // The prepend method put on beginning
 ```
 const technologies = ["UX", "JS", "HTML/CSS"];
 const workList = document.querySelector(".work-list");
-console.log(worklist);
+console.log(workList);
 
 technologies.forEach(currentValue => {
-    const listItem = document.createElement("li");
+    const listItem = document.createElement("li"); // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
     listItem.textContent = tech;
     workList.append(listItem);
 });
 ```
-
-#### Single Element DOM Selectors
