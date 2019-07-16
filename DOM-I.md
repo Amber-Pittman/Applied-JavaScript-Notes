@@ -97,7 +97,8 @@ console.log(btnId); // Prints HTML info into console
 * `.querySelector()` - Finds the FIRST matching selector and is done after that
 
 ```
-const btnQuery = document.querySelector("#custom-btn"); // NOTE: can use ".lambda-button" to get button by class instead of ID
+const btnQuery = document.querySelector("#custom-btn"); 
+// NOTE: ^^^ Can use ".lambda-button" to get button by class instead of ID
 console.log(btnQuery);
 ```
 
