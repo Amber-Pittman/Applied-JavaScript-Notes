@@ -69,6 +69,7 @@
 
  * [DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) - Mozilla Developers Network (MDN) Resource
  * [HTMLCollection Page](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection) - Another MDN Resource
+ * [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) - MDN
 
 
 ## DOM-I Lecture Notes
@@ -77,13 +78,34 @@
 <ul><li>[document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)</li></ul>
 
  ```
- const pTags = document.getElementsByTagName("p"); // Notice it is Elements, not Element - PLURAL
+ const pTags = document.getElementsByTagName("p"); // Notice 'Elements' is PLURAL
  console.log(pTags) // Lists ALL p tags, kind of like an array
  console.log(pTags[0]); // will print 1st Indexed p tag
  ```
- <ul><li>[Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Description)</li><ul>
+
+ <ul><li>[Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Description)</li></ul>
+
  ```
+ // Example 1
  const pTagsArray = array.from(pTags);
  console.log(pTagsArray); // Prints an array of all p tags
+```
+
+```
+// Example 2
+const contentAreaQArr = Array.from(contentAreaQ);
+console.log(contentAreaQArr);
  ```
- 
+
+<ul><li>[document.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) - NodeList</li></ul>
+
+```
+const contentAreaQ = document.querySelectorAll(".content-area");
+console.log(contentAreaQ); // Returns a NodeList
+
+contentAreaQ.forEach(item => ({
+    console.log(item);
+}));
+```
+
+### Dom Manipulation 
