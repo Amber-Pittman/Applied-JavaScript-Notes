@@ -75,7 +75,7 @@
 ## DOM-I Lecture Notes
 
 ### Multiple Element DOM Selectors
-<ul><li>[document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)</li></ul>
+* [document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)
 
  ```
  const pTags = document.getElementsByTagName("p"); // Notice 'Elements' is PLURAL
@@ -83,7 +83,7 @@
  console.log(pTags[0]); // will print 1st Indexed p tag
  ```
 
- <ul><li>[Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Description)</li></ul>
+ * [Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Description)
 
  ```
  // Example 1
@@ -97,7 +97,7 @@ const contentAreaQArr = Array.from(contentAreaQ);
 console.log(contentAreaQArr);
  ```
 
-<ul><li>[document.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) - NodeList</li></ul>
+* [document.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) - NodeList
 
 ```
 const contentAreaQ = document.querySelectorAll(".content-area");
@@ -109,3 +109,84 @@ contentAreaQ.forEach(item => ({
 ```
 
 ### Dom Manipulation 
+
+#### `.textContent`
+1. The textContent property sets or returns the text content of the specified node, and all its descendants.
+2. If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.
+
+```
+const servicesHeader = document.querySelector(".services-header");
+console.log(servicesHeader);
+
+servicesHeader.textContent = "New Services";
+console.log(servicesHeader);
+```
+
+JavaScript DOM adds inline-styling which is the *highest* specificity. 
+
+#### setAttribute
+1. The setAttribute() method adds the specified attribute to an element, and gives it the specified value.
+2. If the specified attribute already exists, only the value is set/changed.
+3. Although it is possible to add the style attribute with a value to an element with this method, it is recommended that you use properties of the Style object instead for inline styling, because this will not overwrite other CSS properties that may be specified in the style attribute.
+
+```
+const servicesImg = document.querySelector(".services-img");
+console.log(servicesImg);
+
+servicesImg.setAttribute("src", "https://www.google.com/images/laptop-coffee");
+servicesImg.setAttribute("alt", "Laptop sitting on desk with coffee");
+console.log(servicesImg);
+```
+
+* Alternative Option:
+
+```
+servicesImg.src("URL");
+servicesImg.alt("alt text goes here");
+console.log(servicesImg);
+```
+
+```
+const secondaryHeaders = document.querySelectorAll("h2");
+console.log(secondaryHeaders);
+console.log(secondaryHeaders[0;]);
+secondaryHeaders[0].style.color = "blue";
+```
+
+* If you had lots to change to `secondaryHeaders`, you could do the following: 
+
+```
+secondaryHeaders.forEach(header => {
+    header.style.color = "blue";
+});
+
+header.style.fontSize = "3rem";
+header.style.backgroundColor = "yellow";
+
+// IMPORTANT - Since it's an array for CSS, and not HTML elements, you can't do the following:
+
+secondaryHeaders.style.color = "red";
+```
+
+#### Creating New DOM Elements
+
+1. Create something
+
+```
+const newPTag = document.createElement("p");
+console.log(newPTag); // Prints empty <p> tag
+```
+2. Add Content
+
+```
+newPTag.textContent = "Hello, World!";
+console.log(newPTag); // Prints <p>Hello, World!<p>
+```
+3. Add it to the DOM
+```
+const extraStuff = document.querySelector(".extra-stuff");
+console.log(extraStuff);
+
+extraStuff.append(newPTag); // The append method puts on end
+extraStuff.prepend(newPtag); // The prepend method put on beginning
+```
