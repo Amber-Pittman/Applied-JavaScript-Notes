@@ -14,7 +14,7 @@
   2. Tree-like structure representing your content, structure, and style
   3. Dynamic - meaning, if we change it live, it changes right before our eyes. 
 ### D. Document (Node Element)
-<ul><li><img src="images/dom-tree.jpg"></li></ul>
+<ul><img src="images/dom-tree.jpg"></ul>
 
 ### E. Code in the DOM!
   1. Go to [LambdaSchool.com](https://lambdaschool.com/) and get into browser developer tools
