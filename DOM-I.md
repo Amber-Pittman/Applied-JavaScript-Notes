@@ -14,13 +14,13 @@
   2. Tree-like structure representing your content, structure, and style
   3. Dynamic - meaning, if we change it live, it changes right before our eyes. 
 ### D. Document (Node Element)
-    <img src="images/dom-tree.jpg">
+<img src="images/dom-tree.jpg">
 ### E. Code in the DOM!
   1. Go to [LambdaSchool.com](https://lambdaschool.com/) and get into browser developer tools
   2. "Elements" show you how the page is built out
-    <ul><li> Go to the <h1> tag </li>
+    <ul><li> Go to the h1 tag </li>
     <li> Type "This is the DOM!"</li>
-    <li> Click off or away from the <h1> tag </li>
+    <li> Click off or away from the h1 tag </li>
     <li> It updates with the new text </li>
     <li> This is *not* permanent! It's only visible on your own browser. This is great for experimenting! </li></ul>
   3. Go to "Console"
