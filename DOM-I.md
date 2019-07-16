@@ -16,7 +16,7 @@
 ### D. Document (Node Element)
 
 ### E. Code
-  1. Go to https://lambdaschool.com/ and get into browser developer tools
+  1. Go to [LambdaSchool.com](https://lambdaschool.com/) and get into browser developer tools
   2. "Elements" show you how the page is built out
     <ul><li> Go to the `<h1>` tag </li>
     <li> Type "This is the DOM!"</li>
@@ -67,4 +67,4 @@
 ## Review MDN Resources
 
 1. [MDN DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-2. [HTMLCollection Page] (https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
+2. [HTMLCollection Page](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
