@@ -14,7 +14,7 @@
   2. Tree-like structure representing your content, structure, and style
   3. Dynamic - meaning, if we change it live, it changes right before our eyes. 
 ### D. Document (Node Element)
-
+<img src="images/dom-tree.jpg">
 ### E. Code
   1. Go to [LambdaSchool.com](https://lambdaschool.com/) and get into browser developer tools
   2. "Elements" show you how the page is built out
@@ -35,18 +35,22 @@
 1. `document.getElementsByTagName("div");` Grabs all the divs on the page
     <ul><li> You'll get an HTMLCollection: 
     <img src="images/All-Divs-DOM-I.PNG"></li></ul>
-2. If you type in `document.getElementsByClassName("navigation-item");`, you will get an HTMLCollection of just the navigation-item class
-    <ul><li> HTMLCollection of the class "navigation-item" </li>
+2. `document.getElementsByClassName("navigation-item");`
+    <ul><li> You will get an HTMLCollection of just the navigation-item class</li>
+    <li> HTMLCollection of the class "navigation-item" </li>
     <img src="images/Nav-Item-DOM-I.PNG"></ul>
 3. `document.getElementById("Pick-Track");` This version only has 1 element because it is targeting an ID
     <ul><li> Get Element by ID, "Pick-Track" </li>
     <img src="images/Element-ID-DOM-I.PNG"></ul>
 4. `document.querySelector("div");` 
-    <ul><li> Query Selector takes 1 string, no matter how many are available.</li>
+    <ul><li> Query Selector is a method of the document object.</li>
+    <li> Query Selector takes 1 string, no matter how many are available.</li>
     <li> Basically anything we can select by CSS</li>
     <img src="images/Query-Selector-DOM-I.PNG"></ul>
 5. `document.querySelectorAll("navigation-item");`
     <ul><li>Returns a node list back</li>
+    <li> Can use the forEach method.</li>
+    <li> HOWEVER, querySelectorAll cannot use the reduce() or map() methods</li>
     <li> Almost identical to an HTMLCollection</li>
     <li> Click on arrow next to NodeList to explore more</li>
     <img src="images/Query-Selector-All-DOM-I.PNG"></ul>
@@ -108,9 +112,9 @@ contentAreaQ.forEach(item => ({
 }));
 ```
 
-### Dom Manipulation 
+#### Dom Manipulation 
 
-#### `.textContent`
+##### `.textContent`
 1. The textContent property sets or returns the text content of the specified node, and all its descendants.
 2. If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.
 
@@ -124,7 +128,7 @@ console.log(servicesHeader);
 
 JavaScript DOM adds inline-styling which is the *highest* specificity. 
 
-#### setAttribute
+##### `.setAttribute()`
 1. The setAttribute() method adds the specified attribute to an element, and gives it the specified value.
 2. If the specified attribute already exists, only the value is set/changed.
 3. Although it is possible to add the style attribute with a value to an element with this method, it is recommended that you use properties of the Style object instead for inline styling, because this will not overwrite other CSS properties that may be specified in the style attribute.
@@ -168,6 +172,23 @@ header.style.backgroundColor = "yellow";
 secondaryHeaders.style.color = "red";
 ```
 
+##### `.classList`
+1. The classList property returns the class name(s) of an element, as a DOMTokenList object.
+2. This property is useful to add, remove and toggle CSS classes on an element.
+3. The classList property is read-only, however, you can modify it by using the add() and remove() methods.
+
+```
+const bottomDiv = document.querySelector(".bottom-div");
+console.log(bottomDiv);
+
+console.log(bottomDiv.classList); // Gives actual list of all classes in this div. Array-like.
+
+bottomDiv.classList.remove("extra-stuff"); // Removes "extra-stuff" CSS rules
+bottomDiv.classList.add("lambda-button");
+console.log(bottomDiv.classList);
+```
+
+
 #### Creating New DOM Elements
 
 1. Create something
@@ -190,3 +211,17 @@ console.log(extraStuff);
 extraStuff.append(newPTag); // The append method puts on end
 extraStuff.prepend(newPtag); // The prepend method put on beginning
 ```
+
+```
+const technologies = ["UX", "JS", "HTML/CSS"];
+const workList = document.querySelector(".work-list");
+console.log(worklist);
+
+technologies.forEach(currentValue => {
+    const listItem = document.createElement("li");
+    listItem.textContent = tech;
+    workList.append(listItem);
+});
+```
+
+#### Single Element DOM Selectors
