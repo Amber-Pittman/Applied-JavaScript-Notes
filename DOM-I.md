@@ -64,7 +64,19 @@
     <li>NodeLists provide more built-in methods</li>
     <li>HTMLCollection is faster in performance because there are NO built-in methods</li></ul>
 
-## Review MDN Resources
 
-1. [MDN DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-2. [HTMLCollection Page](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
+## DOM-I Lecture Notes
+
+### Review Mozilla Developers Network (MDN) Resources
+
+ [DOM page](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+ [HTMLCollection Page](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
+
+### Multiple Element DOM Selectors
+<ul><li>Document.getElementsByTagName</li></ul>
+
+ ```
+ const pTags = document.getElementsByTagName("p"); // Notice it is Elements, not Element - PLURAL
+ console.log(pTags) // Lists ALL p tags, kind of like an array
+ console.log(pTags[0]); // will print 1st Indexed p tag
+ ```
