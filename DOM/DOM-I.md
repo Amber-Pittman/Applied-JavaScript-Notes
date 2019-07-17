@@ -1,22 +1,23 @@
 ## Introduction to the DOM
 
-### A. What is the DOM?
-  1. It is the Document Object Model
-  2. An object representation of the HTML elements of a webpage. 
-  3. It is *NOT* the HTML page itself. 
-  4. The DOM is an Application Programming Interface (API). In our case, the DOM is a bridge between Content and the browser. Content -- DOM --> Browser
-### B. What the DOM is *NOT*:
-  1. JavaScript
+### 1. Explain what the DOM is and how it relates to an HTML page
+#### A. Document Object Model
+  1. It is an object representation of the HTML elements of a webpage. It is *NOT* the HTML page itself. 
+  2. The DOM is an Application Programming Interface (API). 
+     A. It's kind of a bridge between one thing and another thing. 
+     B. In our case, the DOM is a bridge between Content and the browser (Content -- DOM --> Browser)
+#### B. What the DOM is *NOT*:
+  1. JavaScript - JS is just tightly intertwined because of the syntax we see
   2. HTML or CSS
   3. Static - "Static" doesn't change or do anything
-### C. What the DOM *IS*:
+#### C. What the DOM *IS*:
   1. Language-Neutral API - This means JavaScript is not the *only* language that can actually manipulate it
-  2. Tree-like structure representing your content, structure, and style
+  2. Tree-like structure *representing* your content, structure, and style
   3. Dynamic - meaning, if we change it live, it changes right before our eyes. 
-### D. Document (Node Element)
-<ul><img src="images/dom-tree.jpg"></ul>
+#### D. Document (Node Element)
+<ul><img src="./images/dom-tree.jpg"></ul>
 
-### E. Code in the DOM!
+#### E. How to Code in the DOM!
   1. Go to [LambdaSchool.com](https://lambdaschool.com/) and get into browser developer tools
   2. "Elements" show you how the page is built out
     <ul><li> Go to the h1 tag </li>
@@ -29,26 +30,29 @@
     <li> Click on the arrow next to `#document` </li>
     <li> You'll see all the Elements of the Dom tree </li></ul>
 
-## DOM Selectors
+### 2. DOM Selectors
 
-### A. In order to access the DOM, in "console," we use `document` as our base.
-
-1. `document.getElementsByTagName("div");` Grabs all the divs on the page
-    <ul><li> You'll get an HTMLCollection: 
-    <img src="images/All-Divs-DOM-I.PNG"></li></ul>
-2. `document.getElementsByClassName("navigation-item");`
+#### A. In order to access the DOM in "console," we use the object called `document` as our base.
+#### B. `document` is going to be our entire DOM. There are lots of different methods and propertes. We will review 5 major methods and properties below.
+#### C. Classic DOM Selectors
+  1. `document.getElementsByTagName();` 
+    A. By making "Element" plural, you get *all* requested tags
+    B. TagName refers to the actual tag element itself. For example, you could target `nav`, `header`, `img`, `a`, etc.
+    C. You'll get an HTMLCollection: 
+    <ul><li><img src="images/All-Divs-DOM-I.PNG"></li></ul>
+  2. `document.getElementsByClassName("navigation-item");`
     <ul><li> You will get an HTMLCollection of just the navigation-item class</li>
     <li> HTMLCollection of the class "navigation-item" </li>
     <img src="images/Nav-Item-DOM-I.PNG"></ul>
-3. `document.getElementById("Pick-Track");` This version only has 1 element because it is targeting an ID
+  3. `document.getElementById("Pick-Track");` This version only has 1 element because it is targeting an ID
     <ul><li> Get Element by ID, "Pick-Track" </li>
     <img src="images/Element-ID-DOM-I.PNG"></ul>
-4. `document.querySelector("div");` 
+  4. `document.querySelector("div");` 
     <ul><li> Query Selector is a method of the document object.</li>
     <li> Query Selector takes 1 string, no matter how many are available.</li>
     <li> Basically anything we can select by CSS</li>
     <img src="images/Query-Selector-DOM-I.PNG"></ul>
-5. `document.querySelectorAll("navigation-item");`
+  5. `document.querySelectorAll("navigation-item");`
     <ul><li>Returns a node list back</li>
     <li> Can use the forEach method.</li>
     <li> HOWEVER, querySelectorAll cannot use the reduce() or map() methods</li>
