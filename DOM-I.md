@@ -41,15 +41,21 @@
     <li>The console returns an HTMLCollection.
       <ul><li>HTMLCollection is an array-like object</li>
       <li>Looks exactly like an array</li>
-      <li>Acts almost like an array except for a few minor details</li></ul>
-    <li><img src="images/All-Divs-DOM-I.PNG"></li></ol>
-  2. `document.getElementsByClassName("navigation-item");`
-    <ul><li> You will get an HTMLCollection of just the navigation-item class</li>
-    <li> HTMLCollection of the class "navigation-item" </li>
-    <img src="images/Nav-Item-DOM-I.PNG"></ul>
-  3. `document.getElementById("Pick-Track");` This version only has 1 element because it is targeting an ID
-    <ul><li> Get Element by ID, "Pick-Track" </li>
-    <img src="images/Element-ID-DOM-I.PNG"></ul>
+      <li>Acts almost like an array except for a few minor details
+      <img src="images/All-Divs-DOM-I.PNG"></li></ul>
+    </li></ol>
+  2. `document.getElementsByClassName();`
+    <ol><li>Takes a string with the name of the class we want to select</li>
+    <li>No need to use a dot inside the parentheses</li>
+    <li>You will get an HTMLCollection of just the navigation-item class</li>
+    <li>This also returns an HTMLCollection
+    <img src="images/Nav-Item-DOM-I.PNG"></li></ol>
+  3. `document.getElementById();` This version only has 1 element because it is targeting an ID
+    <ol><li>Remember, element cannot be plural here due to the CSS rules on ID</li>
+    <li>No HTMLCollection is returned</li>
+    <li>We only get that one, single element
+    <img src="images/Element-ID-DOM-I.PNG"></li></ol>
+#### D. Modern DOM Selectors
   4. `document.querySelector("div");` 
     <ul><li> Query Selector is a method of the document object.</li>
     <li> Query Selector takes 1 string, no matter how many are available.</li>
