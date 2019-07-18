@@ -61,8 +61,9 @@ JQuery, a JavaScript library, came out and helped us with selectors and lots of 
        <ul><li> an element name,</li>
        <li> an ID,</li>
        <li> a class,</li>
-       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul></li>
-    <li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.
+       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul>
+    </li></ul>
+    <ul><li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.
     <img src="images/Query-Selector-DOM-I.PNG"></li></ul>
   2. `document.querySelectorAll();`
     <ul><li>If you want to get all the items of a particular element, like a div or class, you want this method.</li>
@@ -71,7 +72,7 @@ JQuery, a JavaScript library, came out and helped us with selectors and lots of 
     <li> HOWEVER, querySelectorAll cannot use the reduce() or map() methods</li>
     <li> Almost identical to an HTMLCollection</li>
     <li> Click on arrow next to NodeList to explore more</li>
-    <img src="images/Query-Selector-All-DOM-I.PNG"></ul>
+    <img src="images/Query-Selector-DOM-I.PNG"></ul>
 
 #### E. Difference between HTMLCollection and NodeList
 
