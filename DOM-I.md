@@ -1,22 +1,24 @@
 ## Introduction to the DOM
 
-### A. What is the DOM?
-  1. It is the Document Object Model
-  2. An object representation of the HTML elements of a webpage. 
-  3. It is *NOT* the HTML page itself. 
-  4. The DOM is an Application Programming Interface (API). In our case, the DOM is a bridge between Content and the browser. Content -- DOM --> Browser
-### B. What the DOM is *NOT*:
-  1. JavaScript
+### 1. Explain what the DOM is and how it relates to an HTML page
+
+#### A. Document Object Model
+  1. It is an object representation of the HTML elements of a webpage. It is *NOT* the HTML page itself. 
+  2. The DOM is an Application Programming Interface (API). 
+     <ul><li> It's kind of a bridge between one thing and another thing.</li>
+     <li> In our case, the DOM is a bridge between Content and the browser (Content -- DOM --> Browser)</li></ul>
+#### B. What the DOM is *NOT*:
+  1. JavaScript - JS is just tightly intertwined because of the syntax we see
   2. HTML or CSS
   3. Static - "Static" doesn't change or do anything
-### C. What the DOM *IS*:
+#### C. What the DOM *IS*:
   1. Language-Neutral API - This means JavaScript is not the *only* language that can actually manipulate it
-  2. Tree-like structure representing your content, structure, and style
+  2. Tree-like structure *representing* your content, structure, and style
   3. Dynamic - meaning, if we change it live, it changes right before our eyes. 
-### D. Document (Node Element)
-<ul><img src="images/dom-tree.jpg"></ul>
+#### D. Document (Node Element)
+<ul><img src="./images/dom-tree.jpg"></ul>
 
-### E. Code in the DOM!
+#### E. How to Code in the DOM!
   1. Go to [LambdaSchool.com](https://lambdaschool.com/) and get into browser developer tools
   2. "Elements" show you how the page is built out
     <ul><li> Go to the h1 tag </li>
@@ -29,34 +31,48 @@
     <li> Click on the arrow next to `#document` </li>
     <li> You'll see all the Elements of the Dom tree </li></ul>
 
-## DOM Selectors
+### 2. DOM Selectors
 
-### A. In order to access the DOM, in "console," we use `document` as our base.
-
-1. `document.getElementsByTagName("div");` Grabs all the divs on the page
-    <ul><li> You'll get an HTMLCollection: 
-    <img src="images/All-Divs-DOM-I.PNG"></li></ul>
-2. `document.getElementsByClassName("navigation-item");`
-    <ul><li> You will get an HTMLCollection of just the navigation-item class</li>
-    <li> HTMLCollection of the class "navigation-item" </li>
+#### A. In order to access the DOM in "console," we use the object called `document` as our base.
+#### B. `document` is going to be our entire DOM. There are lots of different methods and propertes. We will review 5 major methods and properties below.
+#### C. Classic DOM Selectors
+  1. `document.getElementsByTagName();` 
+    <ul><li>By making "Element" plural, you get all the requested tags</li>
+    <li>TagName refers to the actual tag element itself. For example, you could target `nav`, `header`, `img`, `a`, etc.</li>
+    <li>The console returns an HTMLCollection.
+      <ul><li>HTMLCollection is an array-like object</li>
+      <li>Looks exactly like an array</li>
+      <li>Acts almost like an array except for a few minor details
+      <img src="images/All-Divs-DOM-I.PNG"></li></ul></ul>
+  2. `document.getElementsByClassName();`
+    <ul><li>Takes a string with the name of the class we want to select</li>
+    <li>No need to use a dot inside the parentheses</li>
+    <li>This also returns an HTMLCollection</li>
     <img src="images/Nav-Item-DOM-I.PNG"></ul>
-3. `document.getElementById("Pick-Track");` This version only has 1 element because it is targeting an ID
-    <ul><li> Get Element by ID, "Pick-Track" </li>
-    <img src="images/Element-ID-DOM-I.PNG"></ul>
-4. `document.querySelector("div");` 
-    <ul><li> Query Selector is a method of the document object.</li>
-    <li> Query Selector takes 1 string, no matter how many are available.</li>
-    <li> Basically anything we can select by CSS</li>
-    <img src="images/Query-Selector-DOM-I.PNG"></ul>
-5. `document.querySelectorAll("navigation-item");`
-    <ul><li>Returns a node list back</li>
+  3. `document.getElementById();` This version only has 1 element because it is targeting an ID
+    <ul><li>Remember, element cannot be plural here due to the CSS rules on ID</li>
+    <li>No HTMLCollection is returned</li>
+    <li>We only get that one, single element
+    <img src="images/Element-ID-DOM-I.PNG"></li></ul>
+#### D. Modern DOM Selectors
+JQuery, a JavaScript library, came out and helped us with selectors and lots of other things. JQuery kind of popularized this idea that we can select items on a page based on a CSS style-selector. Instead of using any of the previous Classic DOM selectors, the JavaScript "powers that be" decided to include JQuery's style-selector in vanilla JavaScript.
+  1. `document.querySelector();` 
+    <ul><li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.</li>
+    <li> .querySelector will take one string from:</li>
+       <ul><li> an element name,</li>
+       <li> an ID,</li>
+       <li> a class,</li>
+       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul></ul>
+  2. `document.querySelectorAll();`
+    <ul><li>If you want to get all the items of a particular element, like a div or class, you want this method.</li>
+    <li>Returns a node list back</li>
     <li> Can use the forEach method.</li>
     <li> HOWEVER, querySelectorAll cannot use the reduce() or map() methods</li>
     <li> Almost identical to an HTMLCollection</li>
     <li> Click on arrow next to NodeList to explore more</li>
-    <img src="images/Query-Selector-All-DOM-I.PNG"></ul>
+    <img src="images/Query-Selector-DOM-I.PNG"></ul>
 
-### B. Difference between HTMLCollection and NodeList
+#### E. Difference between HTMLCollection and NodeList
 
 1. Similarities
     <ul><li>Both look like arrays</li>
@@ -68,7 +84,182 @@
     <ul><li>NodeLists can use the forEach() method, but HTMLCollection does NOT have that function.</li>
     <li>NodeLists provide more built-in methods</li>
     <li>HTMLCollection is faster in performance because there are NO built-in methods</li></ul>
+3. If you want to use `map()`, `filter()`, `sort()`, etc, you can use the prototype from array. `Array.from()` takes a single argument from an array-like object and gives us back an actual array. Example:
 
+```
+const arr = Array.from(nodeList); // Turns into an array 
+                      // Can use HTMLCollection here too
+                      
+arr.map(item => { return item}); // Returns an array
+```
+
+### 3. DOM Properties and Methods
+This section shows how to do things to elements once e select them by using DOM properties and methods.
+
+Create a new element and select the element
+```
+// SETUP Code
+const introText = document.querySelector(#intro-info p"); // #intro-info is PARENT and p is CHILD
+
+introText; // Returns paragraph tag
+```
+
+#### A. .textContent
+Returns whatever the content is inside the selected element. 
+
+1. Working off the setup code above, the following will provide the actual paragraph, not the tags.
+``` 
+introText.textContent
+```
+
+2. You can also set the text content this way:
+```
+introText.textContent = "Here's some new text content.";
+```
+
+  When you press enter in the DOM, the live view of the paragraph is replaced with the new paragraph text. In this case, the site page shows "Here's some new text content."
+
+#### B. .setAttribute
+1. .setAttribute is a method that we can use to change an element. For example, you can change the page's image.
+
+```
+// Setup
+const catImg = document.querySelector("img");
+catImg  // Prints catImg information
+```
+2. It takes 2 arguments
+    <ul><li> First argument is a string with an attribute name in it, like "src".</li>
+    <li> Second argument is a string of what you want to set that attribute to. In this case, we will use a different source link for the catImg.</li></ul>
+
+```
+catImg.setAttribute('src', "https://exampleimg.com") 
+// When you press Enter, the image will update to this new image
+```
+
+3. Important to Remember
+    <ul><li>When changing things on the DOM, it is NOT changing the HTML.</li>
+    <li>Instead, this is changing the JavaScript representation of the HTML on the page (where it's being displayed).</li></ul>
+
+4. An alternative to the setAttribute method is the Property way. You just give the name of the attribute itself as a property.
+
+```
+catImg.src = "https://anotherCatImage.com"
+```
+
+#### C. .style
+1. .style is a property
+2. It is an object with literally every single CSS property that is available in the DOM, such as cursor, display, fontSize, etc.
+3. In CSS, we write out properties like "font-size" or "background-color". However, in JavaScript, we use camel casing instead. 
+    <ul><li>To target CSS' `font-size`, we would use `fontSize` in JavaScript. </li>
+    <li>You can't use the CSS hyphen because JS translates it as a minus sign, making it perform a math operation.</li></ul>
+4. Example of the Style property
+   
+```
+const headline = document.querySelector("h1");
+headline  // Prints h1 information
+
+headline.style   // Prints CSSStyleDecoration{.......}
+
+headline.style.fontSize = "5rem"; // Your h2 will change to 5rem
+
+headline.style.color = "#019785"; // h1 changes to a green color
+```
+
+#### D. .className
+1. It allows us to set (or change) what our class names are.
+2. How to use `.className`
+
+```
+const header = document.querySelector("header");
+
+header.className = "green";  // Prints "green" in console
+// Also, the header's color changes to green
+```
+
+3. If we have a string with multiple classes, use the next option. For example, your h1 could have 3 different classes on it. `.className` will return all 3 of them. It *might* be useful for us, but if we want to remove a single one of those classes, we would need to do the following. We'd have to split it, create an array to take the one we want out of that array, then join the array back together. That's a long process. However, there is a better way...
+
+#### E. .classList
+1. SETUP
+
+```
+header.classList   // Prints out a DOMTokenList
+```
+
+2. The DOMTokenList provides a list of items in the class list.
+3. You can add a new class to your classList: 
+
+```
+header.classList.add("large");
+header.classList  
+
+// Prints out new list with the new class attached to it
+// DOMTokenList(2)["green", "large", value: "green large"]
+
+header.classList.add("top");
+header.classList  
+
+// Prints DOMTokenList(3)["green", "large", "top", value: "green large top"]
+```
+
+4. Maybe you need to get rid of a class. Use the `remove` option:
+
+```
+header.classList.remove("top")
+header.classList
+
+//DOMTokenList(2)["green", "large", value: "green large"]
+
+header.classList.remove("green")
+header.classList
+
+//DOMTokenList(1)["large", value: "large"]
+```
+
+5. classList also has a toggle function to switch between as is necessary
+
+```
+header.classList.toggle("green")
+
+// This should remove it if it is there or add it if it is not there. Like a light switch.
+```
+
+Since we removed the "green" class earlier, the toggle added it back on. It prints `true` in the console. If you repeat the line of code and the green class is "off", it will print `false` in the console.
+
+#### F. Creating New DOM Elements from JavaScript using `.createElement`
+
+1. Create something
+
+```
+const newPTag = document.createElement("p");
+console.log(newPTag); // Prints empty <p> tag
+```
+2. Add Content
+
+```
+newPTag.textContent = "Hello, World!";
+console.log(newPTag); // Prints <p>Hello, World!<p>
+```
+3. Add it to the DOM
+```
+const extraStuff = document.querySelector(".extra-stuff");
+console.log(extraStuff);
+
+extraStuff.append(newPTag); // The append method puts on end
+extraStuff.prepend(newPtag); // The prepend method put on beginning
+```
+
+```
+const technologies = ["UX", "JS", "HTML/CSS"];
+const workList = document.querySelector(".work-list");
+console.log(workList);
+
+technologies.forEach(currentValue => {
+    // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
+    const listItem = document.createElement("li"); 
+    listItem.textContent = tech;
+    workList.append(listItem);
+});
+```
 
 ## Deeper Dive Resources
 
@@ -243,41 +434,4 @@ console.log(bottomDiv.classList); // Gives actual list of all classes in this di
 bottomDiv.classList.remove("extra-stuff"); // Removes "extra-stuff" CSS rules
 bottomDiv.classList.add("lambda-button");
 console.log(bottomDiv.classList);
-```
-
-
-#### Creating New DOM Elements from JavaScript
-
-1. Create something
-
-```
-const newPTag = document.createElement("p");
-console.log(newPTag); // Prints empty <p> tag
-```
-2. Add Content
-
-```
-newPTag.textContent = "Hello, World!";
-console.log(newPTag); // Prints <p>Hello, World!<p>
-```
-3. Add it to the DOM
-```
-const extraStuff = document.querySelector(".extra-stuff");
-console.log(extraStuff);
-
-extraStuff.append(newPTag); // The append method puts on end
-extraStuff.prepend(newPtag); // The prepend method put on beginning
-```
-
-```
-const technologies = ["UX", "JS", "HTML/CSS"];
-const workList = document.querySelector(".work-list");
-console.log(workList);
-
-technologies.forEach(currentValue => {
-    // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
-    const listItem = document.createElement("li"); 
-    listItem.textContent = tech;
-    workList.append(listItem);
-});
 ```
