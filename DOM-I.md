@@ -57,13 +57,12 @@
 #### D. Modern DOM Selectors
 JQuery, a JavaScript library, came out and helped us with selectors and lots of other things. JQuery kind of popularized this idea that we can select items on a page based on a CSS style-selector. Instead of using any of the previous Classic DOM selectors, the JavaScript "powers that be" decided to include JQuery's style-selector in vanilla JavaScript.
   1. `document.querySelector();` 
-    <ul><li> .querySelector will take one string from:
+    <ul><li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.</li>
+    <li> .querySelector will take one string from:</li>
        <ul><li> an element name,</li>
        <li> an ID,</li>
        <li> a class,</li>
        <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul>
-    </li></ul>
-    <ul><li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.
     <img src="images/Query-Selector-DOM-I.PNG"></li></ul>
   2. `document.querySelectorAll();`
     <ul><li>If you want to get all the items of a particular element, like a div or class, you want this method.</li>
