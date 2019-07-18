@@ -62,7 +62,7 @@ JQuery, a JavaScript library, came out and helped us with selectors and lots of 
        <ul><li> an element name,</li>
        <li> an ID,</li>
        <li> a class,</li>
-       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul>
+       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul></ul>
     
     <img src="images/Query-Selector-DOM-I.PNG">
   2. `document.querySelectorAll();`
