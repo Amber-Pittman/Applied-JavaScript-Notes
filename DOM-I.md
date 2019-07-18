@@ -1,11 +1,12 @@
 ## Introduction to the DOM
 
 ### 1. Explain what the DOM is and how it relates to an HTML page
+
 #### A. Document Object Model
   1. It is an object representation of the HTML elements of a webpage. It is *NOT* the HTML page itself. 
   2. The DOM is an Application Programming Interface (API). 
-     A. It's kind of a bridge between one thing and another thing. 
-     B. In our case, the DOM is a bridge between Content and the browser (Content -- DOM --> Browser)
+     <ul><li> It's kind of a bridge between one thing and another thing.</li>
+     <li> In our case, the DOM is a bridge between Content and the browser (Content -- DOM --> Browser)</li></ul>
 #### B. What the DOM is *NOT*:
   1. JavaScript - JS is just tightly intertwined because of the syntax we see
   2. HTML or CSS
@@ -54,20 +55,27 @@
     <li>We only get that one, single element
     <img src="images/Element-ID-DOM-I.PNG"></li></ul>
 #### D. Modern DOM Selectors
-  1. `document.querySelector("div");` 
-    <ul><li> Query Selector is a method of the document object.</li>
-    <li> Query Selector takes 1 string, no matter how many are available.</li>
-    <li> Basically anything we can select by CSS</li>
-    <img src="images/Query-Selector-DOM-I.PNG"></ul>
-  2. `document.querySelectorAll("navigation-item");`
-    <ul><li>Returns a node list back</li>
+JQuery, a JavaScript library, came out and helped us with selectors and lots of other things. JQuery kind of popularized this idea that we can select items on a page based on a CSS style-selector. Instead of using any of the previous Classic DOM selectors, the JavaScript "powers that be" decided to include JQuery's style-selector in vanilla JavaScript.
+  1. `document.querySelector();` 
+    <ul>
+    <li> .querySelector will take one string from:
+       <ul><li> an element name,</li>
+       <li> an ID,</li>
+       <li> a class,</li>
+       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul></li>
+    <li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.</li>
+    <img src="images/Query-Selector-DOM-I.PNG">
+    </ul>
+  2. `document.querySelectorAll();`
+    <ul><li>If you want to get all the items of a particular element, like a div or class, you want this method.</li>
+    <li>Returns a node list back</li>
     <li> Can use the forEach method.</li>
     <li> HOWEVER, querySelectorAll cannot use the reduce() or map() methods</li>
     <li> Almost identical to an HTMLCollection</li>
     <li> Click on arrow next to NodeList to explore more</li>
     <img src="images/Query-Selector-All-DOM-I.PNG"></ul>
 
-### B. Difference between HTMLCollection and NodeList
+#### E. Difference between HTMLCollection and NodeList
 
 1. Similarities
     <ul><li>Both look like arrays</li>
@@ -79,6 +87,24 @@
     <ul><li>NodeLists can use the forEach() method, but HTMLCollection does NOT have that function.</li>
     <li>NodeLists provide more built-in methods</li>
     <li>HTMLCollection is faster in performance because there are NO built-in methods</li></ul>
+3. If you want to use `map()`, `filter()`, `sort()`, etc, you can use the prototype from array. `Array.from()` takes a single argument from an array-like object and gives us back an actual array. Example:
+  ```
+  const arr = Array.from(nodeList); // Turns into an array 
+                        // Can use HTMLCollection here too
+                        
+  arr.map(item => { return item}); // Returns an array
+  ```
+
+### 3. DOM Properties and Methods
+This section shows how to do things to elements once e select them by using DOM properties and methods.
+
+Create a new element and select the element
+```
+const introText = document.querySelector(#intro-info p"); // #intro-info is PARENT and p is CHILD
+
+introText; // Returns paragraph tag
+```
+
 
 
 ## Deeper Dive Resources
