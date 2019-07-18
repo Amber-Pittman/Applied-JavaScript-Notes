@@ -36,10 +36,13 @@
 #### B. `document` is going to be our entire DOM. There are lots of different methods and propertes. We will review 5 major methods and properties below.
 #### C. Classic DOM Selectors
   1. `document.getElementsByTagName();` 
-    <ul><li list-style="none">A. By making "Element" plural, you get *all* requested tags</li>
-    B. TagName refers to the actual tag element itself. For example, you could target `nav`, `header`, `img`, `a`, etc.
-    C. You'll get an HTMLCollection: 
-    <ul><li><img src="images/All-Divs-DOM-I.PNG"></li></ul>
+    <ol><li>By making "Element" plural, you get all the requested tags</li>
+    <li>TagName refers to the actual tag element itself. For example, you could target `nav`, `header`, `img`, `a`, etc.</li>
+    <li>The console returns an HTMLCollection.
+      <ul><li>HTMLCollection is an array-like object</li>
+      <li>Looks exactly like an array</li>
+      <li>Acts almost like an array except for a few minor details</li></ul>
+    <li><img src="images/All-Divs-DOM-I.PNG"></li></ol>
   2. `document.getElementsByClassName("navigation-item");`
     <ul><li> You will get an HTMLCollection of just the navigation-item class</li>
     <li> HTMLCollection of the class "navigation-item" </li>
