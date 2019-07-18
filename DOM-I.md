@@ -105,6 +105,58 @@ const introText = document.querySelector(#intro-info p"); // #intro-info is PARE
 introText; // Returns paragraph tag
 ```
 
+#### A. .textContent
+Returns whatever the content is inside the selected element. 
+
+1. Working off the setup code above, the following will provide the actual paragraph, not the tags.
+``` 
+introText.textContent
+```
+2. You can also set the text content this way:
+```
+introText.textContent = "Here's some new text content.";
+```
+    When you press enter in the DOM, the live view of the paragraph is replaced with the new paragraph text. In this case, the site page shows "Here's some new text content."
+
+#### B. .setAttribute
+1. .setAttribute is a method that we can use to change an element. For example, you can change the page's image.
+```
+// Setup
+const catImg = document.querySelector("img");
+catImg  // Prints catImg information
+```
+2. It takes 2 arguments
+<ul>
+  <li> First argument is a string with an attribute name in it, like "src".</li>
+  <li> Second argument is a string of what you want to set that attribute to. In this case, we will use a different source link for the catImg.</li>
+</ul>
+```
+catImg.setAttribute('src', "https://exampleimg.com") 
+// When you press Enter, the image will update to this new image
+```
+
+3. Important to Remember
+<ul>
+  <li>When changing things on the DOM, it is NOT changing the HTML.</li>
+  <li>Instead, this is changing the JavaScript representation of the HTML on the page (where it's being displayed).</li>
+</ul>
+
+4. An alternative to the setAttribute method by just giving the name of the attribute itself as a property.
+```
+catImg.src = "https://anotherCatImage.com"
+```
+This is the Property way. 
+
+#### C. .style
+1. .style is a property
+2. It is an object with literally every single CSS property that is available in the DOM, such as cursor, display, fontSize, etc.
+3. In CSS, we write out properties like "font-size" or "background-color". However, in JavaScript, we use camel casing instead. 
+<ul>
+  <li>To target CSS' font-size, we would use `fontSize` in JavaScript. </li>
+  <li>You can't use the CSS hyphen because JS translates it as a minus sign, making it perform a math operation.</li>
+</ul>
+
+4. 
 
 
 ## Deeper Dive Resources
