@@ -42,8 +42,7 @@
       <ul><li>HTMLCollection is an array-like object</li>
       <li>Looks exactly like an array</li>
       <li>Acts almost like an array except for a few minor details
-      <img src="images/All-Divs-DOM-I.PNG"></li></ul>
-    </li></ol>
+      <img src="images/All-Divs-DOM-I.PNG"></li></ul></ol>
   2. `document.getElementsByClassName();`
     <ol><li>Takes a string with the name of the class we want to select</li>
     <li>No need to use a dot inside the parentheses</li>
