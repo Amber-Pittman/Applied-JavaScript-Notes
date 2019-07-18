@@ -152,8 +152,108 @@ catImg.src = "https://anotherCatImage.com"
 3. In CSS, we write out properties like "font-size" or "background-color". However, in JavaScript, we use camel casing instead. 
     <ul><li>To target CSS' `font-size`, we would use `fontSize` in JavaScript. </li>
     <li>You can't use the CSS hyphen because JS translates it as a minus sign, making it perform a math operation.</li></ul>
-4. 
+4. Example of the Style property
+   
+```
+const headline = document.querySelector("h1");
+headline  // Prints h1 information
 
+headline.style   // Prints CSSStyleDecoration{.......}
+
+headline.style.fontSize = "5rem"; // Your h2 will change to 5rem
+
+headline.style.color = "#019785"; // h1 changes to a green color
+```
+
+#### D. .className
+1. It allows us to set (or change) what our class names are.
+2. How to use `.className`
+
+```
+const header = document.querySelector("header");
+
+header.className = "green";  // Prints "green" in console
+// Also, the header's color changes to green
+```
+
+3. If we have a string with multiple classes, use the next option. For example, your h1 could have 3 different classes on it. `.className` will return all 3 of them. It *might* be useful for us, but if we want to remove a single one of those classes, we would need to do the following. We'd have to split it, create an array to take the one we want out of that array, then join the array back together. That's a long process. However, there is a better way...
+
+#### E. .classList
+1. Example
+
+```
+header.classList   // Prints out a DOMTokenList
+```
+2. The DOMTokenList provides a list of items in the class list.
+3. You can add a new class to your classList: 
+```
+header.classList.add("large");
+header.classList  
+
+// Prints out new list with the new class attached to it
+// DOMTokenList(2)["green", "large", value: "green large"]
+
+header.classList.add("top");
+header.classList  
+
+// Prints DOMTokenList(3)["green", "large", "top", value: "green large top"]
+```
+4. Maybe you need to get rid of a class. Use the `remove` option:
+```
+header.classList.remove("top")
+header.classList
+
+//DOMTokenList(2)["green", "large", value: "green large"]
+
+header.classList.remove("green")
+header.classList
+
+//DOMTokenList(1)["large", value: "large"]
+```
+5. classList also has a toggle function to switch between as is necessary
+```
+header.classList.toggle("green")
+
+// This should remove it if it is there or add it if it is not there. Like a light switch.
+```
+
+Since we removed the "green" class earlier, the toggle added it back on. It prints `true` in the console. If you repeat the line of code and the green class is "off", it will print `false` in the console.
+
+#### F. Creating New DOM Elements from JavaScript using `.createElement`
+
+1. Create something
+
+```
+const newPTag = document.createElement("p");
+console.log(newPTag); // Prints empty <p> tag
+```
+2. Add Content
+
+```
+newPTag.textContent = "Hello, World!";
+console.log(newPTag); // Prints <p>Hello, World!<p>
+```
+3. Add it to the DOM
+```
+const extraStuff = document.querySelector(".extra-stuff");
+console.log(extraStuff);
+
+extraStuff.append(newPTag); // The append method puts on end
+extraStuff.prepend(newPtag); // The prepend method put on beginning
+```
+
+```
+const technologies = ["UX", "JS", "HTML/CSS"];
+const workList = document.querySelector(".work-list");
+console.log(workList);
+
+technologies.forEach(currentValue => {
+    // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
+    const listItem = document.createElement("li"); 
+    listItem.textContent = tech;
+    workList.append(listItem);
+});
+```
 
 ## Deeper Dive Resources
 
@@ -328,41 +428,4 @@ console.log(bottomDiv.classList); // Gives actual list of all classes in this di
 bottomDiv.classList.remove("extra-stuff"); // Removes "extra-stuff" CSS rules
 bottomDiv.classList.add("lambda-button");
 console.log(bottomDiv.classList);
-```
-
-
-#### Creating New DOM Elements from JavaScript
-
-1. Create something
-
-```
-const newPTag = document.createElement("p");
-console.log(newPTag); // Prints empty <p> tag
-```
-2. Add Content
-
-```
-newPTag.textContent = "Hello, World!";
-console.log(newPTag); // Prints <p>Hello, World!<p>
-```
-3. Add it to the DOM
-```
-const extraStuff = document.querySelector(".extra-stuff");
-console.log(extraStuff);
-
-extraStuff.append(newPTag); // The append method puts on end
-extraStuff.prepend(newPtag); // The prepend method put on beginning
-```
-
-```
-const technologies = ["UX", "JS", "HTML/CSS"];
-const workList = document.querySelector(".work-list");
-console.log(workList);
-
-technologies.forEach(currentValue => {
-    // Const wouldn't work OUTSIDE the Curly Brackets without the LET variable instead
-    const listItem = document.createElement("li"); 
-    listItem.textContent = tech;
-    workList.append(listItem);
-});
 ```
