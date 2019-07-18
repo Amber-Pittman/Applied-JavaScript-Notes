@@ -62,7 +62,7 @@ JQuery, a JavaScript library, came out and helped us with selectors and lots of 
        <ul><li> an element name,</li>
        <li> an ID,</li>
        <li> a class,</li>
-       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul></li>
+       <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul>
     <li> Returns that single element. Even if there are multiple ones available, as is usually the case with a class, it will only return the very first item it finds that matches that query.</li>
     <img src="images/Query-Selector-DOM-I.PNG">
     </ul>
