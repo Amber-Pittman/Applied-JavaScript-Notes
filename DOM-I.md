@@ -179,13 +179,15 @@ header.className = "green";  // Prints "green" in console
 3. If we have a string with multiple classes, use the next option. For example, your h1 could have 3 different classes on it. `.className` will return all 3 of them. It *might* be useful for us, but if we want to remove a single one of those classes, we would need to do the following. We'd have to split it, create an array to take the one we want out of that array, then join the array back together. That's a long process. However, there is a better way...
 
 #### E. .classList
-1. Example
+1. SETUP
 
 ```
 header.classList   // Prints out a DOMTokenList
 ```
+
 2. The DOMTokenList provides a list of items in the class list.
 3. You can add a new class to your classList: 
+
 ```
 header.classList.add("large");
 header.classList  
@@ -198,7 +200,9 @@ header.classList
 
 // Prints DOMTokenList(3)["green", "large", "top", value: "green large top"]
 ```
+
 4. Maybe you need to get rid of a class. Use the `remove` option:
+
 ```
 header.classList.remove("top")
 header.classList
@@ -210,7 +214,9 @@ header.classList
 
 //DOMTokenList(1)["large", value: "large"]
 ```
+
 5. classList also has a toggle function to switch between as is necessary
+
 ```
 header.classList.toggle("green")
 
