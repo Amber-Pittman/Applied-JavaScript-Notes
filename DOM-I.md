@@ -46,9 +46,8 @@
   2. `document.getElementsByClassName();`
     <ol><li>Takes a string with the name of the class we want to select</li>
     <li>No need to use a dot inside the parentheses</li>
-    <li>You will get an HTMLCollection of just the navigation-item class</li>
-    <li>This also returns an HTMLCollection
-    <img src="images/Nav-Item-DOM-I.PNG"></li></ol>
+    <li>This also returns an HTMLCollection</li>
+    <img src="images/Nav-Item-DOM-I.PNG"></ol>
   3. `document.getElementById();` This version only has 1 element because it is targeting an ID
     <ol><li>Remember, element cannot be plural here due to the CSS rules on ID</li>
     <li>No HTMLCollection is returned</li>
