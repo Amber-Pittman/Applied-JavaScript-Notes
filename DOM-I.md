@@ -36,30 +36,30 @@
 #### B. `document` is going to be our entire DOM. There are lots of different methods and propertes. We will review 5 major methods and properties below.
 #### C. Classic DOM Selectors
   1. `document.getElementsByTagName();` 
-    <ol><li>By making "Element" plural, you get all the requested tags</li>
+    <ul><li>By making "Element" plural, you get all the requested tags</li>
     <li>TagName refers to the actual tag element itself. For example, you could target `nav`, `header`, `img`, `a`, etc.</li>
     <li>The console returns an HTMLCollection.
       <ul><li>HTMLCollection is an array-like object</li>
       <li>Looks exactly like an array</li>
       <li>Acts almost like an array except for a few minor details
-      <img src="images/All-Divs-DOM-I.PNG"></li></ul></ol>
+      <img src="images/All-Divs-DOM-I.PNG"></li></ul></ul>
   2. `document.getElementsByClassName();`
-    <ol><li>Takes a string with the name of the class we want to select</li>
+    <ul><li>Takes a string with the name of the class we want to select</li>
     <li>No need to use a dot inside the parentheses</li>
     <li>This also returns an HTMLCollection</li>
-    <img src="images/Nav-Item-DOM-I.PNG"></ol>
+    <img src="images/Nav-Item-DOM-I.PNG"></ul>
   3. `document.getElementById();` This version only has 1 element because it is targeting an ID
-    <ol><li>Remember, element cannot be plural here due to the CSS rules on ID</li>
+    <ul><li>Remember, element cannot be plural here due to the CSS rules on ID</li>
     <li>No HTMLCollection is returned</li>
     <li>We only get that one, single element
-    <img src="images/Element-ID-DOM-I.PNG"></li></ol>
+    <img src="images/Element-ID-DOM-I.PNG"></li></ul>
 #### D. Modern DOM Selectors
-  4. `document.querySelector("div");` 
+  1. `document.querySelector("div");` 
     <ul><li> Query Selector is a method of the document object.</li>
     <li> Query Selector takes 1 string, no matter how many are available.</li>
     <li> Basically anything we can select by CSS</li>
     <img src="images/Query-Selector-DOM-I.PNG"></ul>
-  5. `document.querySelectorAll("navigation-item");`
+  2. `document.querySelectorAll("navigation-item");`
     <ul><li>Returns a node list back</li>
     <li> Can use the forEach method.</li>
     <li> HOWEVER, querySelectorAll cannot use the reduce() or map() methods</li>
