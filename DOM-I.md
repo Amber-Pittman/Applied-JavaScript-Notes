@@ -63,7 +63,7 @@ JQuery, a JavaScript library, came out and helped us with selectors and lots of 
        <li> an ID,</li>
        <li> a class,</li>
        <li> Anything that we can select via CSS (including the wildcard selector - * )</li></ul>
-    <img src="images/Query-Selector-DOM-I.PNG"></li></ul>
+    <li><img src="images/Query-Selector-DOM-I.PNG"></li></ul>
   2. `document.querySelectorAll();`
     <ul><li>If you want to get all the items of a particular element, like a div or class, you want this method.</li>
     <li>Returns a node list back</li>
