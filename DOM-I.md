@@ -88,12 +88,13 @@ JQuery, a JavaScript library, came out and helped us with selectors and lots of 
     <li>NodeLists provide more built-in methods</li>
     <li>HTMLCollection is faster in performance because there are NO built-in methods</li></ul>
 3. If you want to use `map()`, `filter()`, `sort()`, etc, you can use the prototype from array. `Array.from()` takes a single argument from an array-like object and gives us back an actual array. Example:
-  ```
-  const arr = Array.from(nodeList); // Turns into an array 
-                        // Can use HTMLCollection here too
-                        
-  arr.map(item => { return item}); // Returns an array
-  ```
+
+```
+const arr = Array.from(nodeList); // Turns into an array 
+                      // Can use HTMLCollection here too
+                      
+arr.map(item => { return item}); // Returns an array
+```
 
 ### 3. DOM Properties and Methods
 This section shows how to do things to elements once e select them by using DOM properties and methods.
@@ -130,8 +131,8 @@ const catImg = document.querySelector("img");
 catImg  // Prints catImg information
 ```
 2. It takes 2 arguments
-  <ul><li> First argument is a string with an attribute name in it, like "src".</li>
-  <li> Second argument is a string of what you want to set that attribute to. In this case, we will use a different source link for the catImg.</li></ul>
+    <ul><li> First argument is a string with an attribute name in it, like "src".</li>
+    <li> Second argument is a string of what you want to set that attribute to. In this case, we will use a different source link for the catImg.</li></ul>
 
 ```
 catImg.setAttribute('src', "https://exampleimg.com") 
@@ -139,10 +140,8 @@ catImg.setAttribute('src', "https://exampleimg.com")
 ```
 
 3. Important to Remember
-  <ul>
-    <li>When changing things on the DOM, it is NOT changing the HTML.</li>
-    <li>Instead, this is changing the JavaScript representation of the HTML on the page (where it's being displayed).</li>
-  </ul>
+    <ul><li>When changing things on the DOM, it is NOT changing the HTML.</li>
+    <li>Instead, this is changing the JavaScript representation of the HTML on the page (where it's being displayed).</li></ul>
 
 4. An alternative to the setAttribute method is the Property way. You just give the name of the attribute itself as a property.
 
@@ -154,10 +153,8 @@ catImg.src = "https://anotherCatImage.com"
 1. .style is a property
 2. It is an object with literally every single CSS property that is available in the DOM, such as cursor, display, fontSize, etc.
 3. In CSS, we write out properties like "font-size" or "background-color". However, in JavaScript, we use camel casing instead. 
-  <ul>
-    <li>To target CSS' `font-size`, we would use `fontSize` in JavaScript. </li>
-    <li>You can't use the CSS hyphen because JS translates it as a minus sign, making it perform a math operation.</li>
-  </ul>
+    <ul><li>To target CSS' `font-size`, we would use `fontSize` in JavaScript. </li>
+    <li>You can't use the CSS hyphen because JS translates it as a minus sign, making it perform a math operation.</li></ul>
 4. 
 
 
