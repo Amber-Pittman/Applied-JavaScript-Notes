@@ -257,3 +257,12 @@ let container = document.querySelector(".container");
 container.appendChild(buttonCreator()); // Should make all buttons visible without extra code
 ```
 The `function buttonCreator` is now reusable and dynamic. :) 
+
+### Creating Components from Array Data
+
+Most of the time when we get data back, we don't know what's in that data. We expect it to be formed a certain way that should
+be constant in how data is formed.
+
+Sometimes, we want to build and display a component for each item in that data. This is most likely an array. We want to
+do this dynamically. 
+
