@@ -413,6 +413,7 @@ fakeData.forEach((item) => {
 ```
 
 <li>Mapping</li></ul>
+
 ```
 const fakeData = [
     "Button One",
@@ -453,7 +454,7 @@ let buttonsArray = fakeData.map((item) => {
 });
 
 console.log("Here are the buttons", buttonsArray);
-/* Now we have an array full of buttons using .map(). The buttons are not visible on the screen yet. Will 
+ /* Now we have an array full of buttons using .map(). The buttons are not visible on the screen yet. Will 
 come back to this in later modules. */
 
 ```
