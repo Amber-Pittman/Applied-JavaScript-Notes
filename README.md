@@ -6,3 +6,10 @@ Here are the [DOM I](https://github.com/Amber-Pittman/Applied-JavaScript-Notes/b
 
 ## DOM-II
 [DOM II](https://github.com/Amber-Pittman/Applied-JavaScript-Notes/blob/master/DOM-II.md) Notes. 
+
+
+## Components-I
+You can get a thorough introduction to [components](https://github.com/Amber-Pittman/Applied-JavaScript-Notes/blob/master/Components-I.md) here. 
+
+## Components-II
+The final level of JavaScript [Components Notes]() are found here. 
