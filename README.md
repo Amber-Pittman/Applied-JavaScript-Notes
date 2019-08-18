@@ -12,4 +12,4 @@ Here are the [DOM I](https://github.com/Amber-Pittman/Applied-JavaScript-Notes/b
 You can get a thorough introduction to [components](https://github.com/Amber-Pittman/Applied-JavaScript-Notes/blob/master/Components-I.md) here. 
 
 ## Components-II
-The final level of JavaScript [Components Notes]() are found here. 
+The final level of JavaScript [Components Notes](https://github.com/Amber-Pittman/Applied-JavaScript-Notes/blob/master/Components-II.md) are found here. 
