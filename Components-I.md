@@ -216,9 +216,8 @@ function buttonCreator() {
 
 const button = buttonCreator(); 
 const button2 = buttonCreator(); 
-const button3 = buttonCreator(); // Added button3-5 for example purposes
+const button3 = buttonCreator(); // Added button3-4 for example purposes
 const button4 = buttonCreator(); 
-const button5 = buttonCreator(); 
 console.log("The product of the buttonCreator function is ", button);
 
 let container = document.querySelector(".container");
@@ -250,7 +249,6 @@ const button = buttonCreator("This is the 1st button component");
 const button2 = buttonCreator("This is a 2nd button component"); 
 const button3 = buttonCreator("This is a 3rd button component");
 const button4 = buttonCreator("This is a 4th button component"); 
-const button5 = buttonCreator("This is a 5th button component"); 
 console.log("The product of the buttonCreator function is ", button);
 
 let container = document.querySelector(".container");
@@ -265,4 +263,199 @@ be constant in how data is formed.
 
 Sometimes, we want to build and display a component for each item in that data. This is most likely an array. We want to
 do this dynamically. 
+
+```
+const fakeData = [  // array of data
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+```
+
+1. How do we access this data using our previous code? You will update the button variables outside the function. 
+
+```
+const fakeData = [
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+
+function buttonCreator(text) {  
+    let button = document.createElement("button");
+    console.log(button); 
+    
+    button.textContent = text; 
+    console.log(button); 
+    
+    button.classList.add("btn");
+    button.classList.add("lg-btn"); 
+    button.addEventListener("click", (event) => {             
+      console.log(`The button clicked says: ${event.target.textContent}`)
+    });
+    
+    return button; // Return gets the data out of the function
+}
+
+
+const button = buttonCreator(fakeData[0]);  // Replaces the original text 
+const button2 = buttonCreator(fakeData[1]); 
+const button3 = buttonCreator(fakeData[2]);
+const button4 = buttonCreator(fakeData[3]);
+console.log("The product of the buttonCreator function is ", button);
+
+let container = document.querySelector(".container");
+container.appendChild(buttonCreator()); // Should make all buttons visible without extra code. 
+
+/* If not, use this instead:
+container.appendChild(button);
+container.appendChild(button2);
+container.appendChild(button3);
+container.appendChild(button4); */
+```
+
+What if "Button Five" gets added into the array later? Although it is in the array, it will not display. It needs to 
+be appended. You could update the `const button` section and the `container.appendChild` section. It is a tedious process.
+
+What if the array index 0-3 were removed in the array but the rest of the code still acknowledges the presence of them? 
+Most often it will break the code. "Text content of undefined" in console. 
+
+So right now, in this aspect, our code is not DRY. We're not being flexible enough so that we can dynamically create
+components based on the data that we have. 
+
+There are a couple of different ways we can achieve dynamic code. You can use a `for loop`, `.forEach()`, or `.map()`.
+
+<ul><li>Using a for loop:</li>
+
+```
+const fakeData = [
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+
+function buttonCreator(text) {  
+    let button = document.createElement("button");
+    console.log(button); 
+    
+    button.textContent = text; 
+    console.log(button); 
+    
+    button.classList.add("btn");
+    button.classList.add("lg-btn"); 
+    button.addEventListener("click", (event) => {             
+      console.log(`The button clicked says: ${event.target.textContent}`)
+    });
+    
+    return button; // Return gets the data out of the function
+}
+
+
+const button = buttonCreator(fakeData[0]);  
+const button2 = buttonCreator(fakeData[1]); 
+const button3 = buttonCreator(fakeData[2]);
+const button4 = buttonCreator(fakeData[3]);
+console.log("The product of the buttonCreator function is ", button);
+
+let container = document.querySelector(".container");
+
+for (let i = 0; i < fakeData.length; i++) {   // Add the for loop
+    let button = buttonCreator(fakeData[i]);
+    console.log(button);
+}
+
+container.appendChild(button);
+```
+
+<li>An Array Method</li>
+
+```
+const fakeData = [
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+
+function buttonCreator(text) {  
+    let button = document.createElement("button");
+    console.log(button); 
+    
+    button.textContent = text; 
+    console.log(button); 
+    
+    button.classList.add("btn");
+    button.classList.add("lg-btn"); 
+    button.addEventListener("click", (event) => {             
+      console.log(`The button clicked says: ${event.target.textContent}`)
+    });
+    
+    return button; // Return gets the data out of the function
+}
+
+
+const button = buttonCreator(fakeData[0]);  
+const button2 = buttonCreator(fakeData[1]); 
+const button3 = buttonCreator(fakeData[2]);
+const button4 = buttonCreator(fakeData[3]);
+console.log("The product of the buttonCreator function is ", button);
+
+let container = document.querySelector(".container");
+
+fakeData.forEach((item) => {
+    let button = buttonCreator(item); // Don't have to specify array index here
+    container.appendChild(button); // Puts this inside the forEach()
+}) //This is really good if we just want to iterate over the data and add it to our DOM right away; INSTANT
+
+```
+
+<li>Mapping</li></ul>
+```
+const fakeData = [
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+
+function buttonCreator(text) {  
+    let button = document.createElement("button");
+    console.log(button); 
+    
+    button.textContent = text; 
+    console.log(button); 
+    
+    button.classList.add("btn");
+    button.classList.add("lg-btn"); 
+    button.addEventListener("click", (event) => {             
+      console.log(`The button clicked says: ${event.target.textContent}`)
+    });
+    
+    return button; // Return gets the data out of the function
+}
+
+
+const button = buttonCreator(fakeData[0]);  
+const button2 = buttonCreator(fakeData[1]); 
+const button3 = buttonCreator(fakeData[2]);
+const button4 = buttonCreator(fakeData[3]);
+console.log("The product of the buttonCreator function is ", button);
+
+let container = document.querySelector(".container");
+
+let buttonsArray = fakeData.map((item) => { 
+    // Map returns new array with the new items after being manipulated by the cb function
+    let button = buttonCreator(item); 
+    return button; //Map requires the return ALWAYS
+});
+
+console.log("Here are the buttons", buttonsArray);
+/* Now we have an array full of buttons using .map(). The buttons are not visible on the screen yet. Will 
+come back to this in later modules. */
+
+```
+
 
