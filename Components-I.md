@@ -225,4 +225,35 @@ let container = document.querySelector(".container");
 container.appendChild(buttonCreator()); // Should make all buttons visible without extra code
 ```
 
-5. 
+5. How to make elements (the buttons) more dynamic. 
+For example, you probably want the button text to be different for each one. 
+
+```
+function buttonCreator(text) {  // We added a parameter. In this case, text, so we can change the button text
+    let button = document.createElement("button");
+    console.log(button); 
+    
+    button.textContent = text; // We replaced "This is a button component" with the parameter of text
+    console.log(button); 
+    
+    button.classList.add("btn");
+    button.classList.add("lg-btn"); 
+    button.addEventListener("click", (event) => {             
+      console.log(`The button clicked says: ${event.target.textContent}`)
+    });
+    
+    return button; // Return gets the data out of the function
+}
+
+// Since adding text to the parameters of buttonCreator, we'll need to provide that for the elements as well
+const button = buttonCreator("This is the 1st button component"); 
+const button2 = buttonCreator("This is a 2nd button component"); 
+const button3 = buttonCreator("This is a 3rd button component");
+const button4 = buttonCreator("This is a 4th button component"); 
+const button5 = buttonCreator("This is a 5th button component"); 
+console.log("The product of the buttonCreator function is ", button);
+
+let container = document.querySelector(".container");
+container.appendChild(buttonCreator()); // Should make all buttons visible without extra code
+```
+The `function buttonCreator` is now reusable and dynamic. :) 
