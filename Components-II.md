@@ -123,3 +123,93 @@ will return a promise and handle calling `resolve()` or `reject()` for us.
 
 In these cases, we don't have to create a new Promise in our code. However, we will still 
 have access to the `.then()` and `.catch()` functions.
+
+For example, here is a call to the Star Wars API. To make this API call, we're using a 3rd party
+library called Axios. Axios has a function called `.get()`. The `.get()` function is going to create
+a new Promise and handle calling `.resolve()` or `.reject()`. We can chain our `.then()` and 
+`.catch()` functions off of the `.get()` function call.
+
+When we make this API call, the call goes out to the Star Wars API. 
+<ul>
+<li>if that call comes back successfully, we will go into our `.then()` function and receive some
+response from the API. Then we have to handle that data/response call.</li>
+<li>If the API call comes back unsuccessfully, and the API sends back an error, then we go into the
+`.catch()` method. There we have to handle that error we received back from the API.</li>
+</ul>
+
+```
+axios.get("https://swapi.co/api/people") {
+    .then(response => {
+        // Do something with the datawe are getting in response to the API call we just made
+        console.log("response");
+    })
+    .catch(err => {
+        // Handle the error that we received from the API
+        console.log("response");
+    });
+}
+```
+
+### Chaining `.then()`
+
+```
+let time = 0;
+const timeMachine = () => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            resolve((time += 1000)); // 1st parameter
+        }, 1000); // 1000 is the 2nd parameter
+    });
+};
+
+timeMachine().then(newTime => {
+    console.log(newTime); // Outputs 1000
+});
+```
+
+The `setTimeout()` function is an async function that is often used to kind of fake API calls that could
+take 1 second (written as 1000 in ms as above). The 2nd parameter (1000) is where we determine the amount of
+time it takes. After 1000ms (or 1 second), it will run the resolve function. Then we can invoke our 
+timeMachine() function and chain our `.then()` function off the function call (`timeMachine()`).
+
+When the `.resolve()` runs, the callback function inside the `.then()` will get called. It will console.log
+the time. We will see that it outputs 1000.
+
+You can chain another `.then()` to the function call (timeMachine) off of the first `.then()`. The new one
+will take in a new string `.then(newString)` and it's going to console.log a new string that gets passed
+in. 
+
+How this works: When we resolve this Promise, we go into the first `.then`, we receive the `(time += 1000)` 
+value in `newTime` then return out of the first `.then`. We will jump into the next `.then`. The two `.then`'s
+happen synchronously (in order), line by line, top to bottom, left to right.
+
+Since the second `.then` is expecting a string, we need to update the first one. We will create a const variable
+of time in seconds. 
+
+```
+let time = 0;
+const timeMachine = () => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            resolve((time += 1000)); // 1st parameter
+        }, 1000); // 1000 is the 2nd parameter
+    });
+};
+
+timeMachine() {
+    .then(newTime => {
+        const myTime = newTime/1000; //divided by No. seconds have passed
+        return `${myTime} seconds have passed`;
+    });
+    .then(newString => {
+        console.log(newString);
+    });
+};
+
+```
+
+Why would we want to chain a new `.then`? Sometimes we want to do something with our data before we move to do
+something with our data before we move that data along and move it back to part of our applications. 
+
+
+### Chaining `.catch()`
