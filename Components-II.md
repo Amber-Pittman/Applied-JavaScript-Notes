@@ -213,3 +213,42 @@ something with our data before we move that data along and move it back to part 
 
 
 ### Chaining `.catch()`
+
+The `.catch()` function will only run if we invoke the `.reject()` function inside the Promise. The
+`timeMachine` variable is going to take in some amount of time and we're going to tell our `setTimeout()` to
+run for that amount of time (replaces the 1000 in teh 2nd parameter of setTimeout).
+
+```
+const timeMachine = time => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (time > 1000) {
+                resolve(time);
+            } else {
+                reject("Not enough time passed in.");
+            }
+        }, time); // remember this is the 2nd param of setTimeout
+    });
+};
+
+timeMachine(1000) {  //Test out 2500 and 990 as well here
+    .then(newTime => {
+        const myTime = newTime/1000;
+        console.log(`${myTime} seconds have passed`);
+    });
+    .catch(error => {
+        console.log(err);
+    });
+};
+```
+
+### Final Notes
+1. A Promise is a promise from the Object that will let us know when it has completed (or errored) what we have asked it to do.
+2. A Promise can exist in 1 of 3 States:
+<ul>
+<li>Pending - a state where the promise is neither rejected nor fulfilled. This is the state it is in when we first call it.</li>
+<li>Fulfilled - a state where "all is well" and a resolved value can be used by our code.</li>
+<li>Rejected - state where "something went wrong" and there is an error that needs to be dealt with.</li>
+</ul>
+
+3. If the Promise succeeds, it will return the value as a parameter into a callback passed into the `.then()`. If the promise fails, the callback passes into the `.catch()`, runs and takes an error as its argument. 
